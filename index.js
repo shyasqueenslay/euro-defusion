@@ -202,7 +202,7 @@ const updateCountriesAndCitiesCompletion = (caseX, day, map) => {
             // refer to City object description if u don't get it.
             for (const [_,value] of Object.entries(map[cityCoordinates[0]][cityCoordinates[1]].balance)) {
                 // So we assume motif complete if amount of its coins is more then 1000 
-                if (value < 1000) {
+                if (value === 0) {
 
                     // Shares same logic with previous boolean values: even if 1 motif is incomplete it means that city is also incomplete
                     isCityComplete = false
@@ -245,7 +245,7 @@ const main = () => {
             {encoding:'utf8', flag:'r'});
 
     // number of days passed during simulation we need to save it as we need to sort countries by completion date after all the countries will be completed
-    let daysPassed = 0        
+    let daysPassed = 1      
      
     // parse input to test cases array where each test case is object containing countries property which is array where each element matches this interface
     // Country {
@@ -339,7 +339,7 @@ const main = () => {
         answers.push(case1)
 
         // reset days counter
-        daysPassed = 0
+        daysPassed = 1
     }
 
     console.log(answers[0], answers[1], answers[2])
