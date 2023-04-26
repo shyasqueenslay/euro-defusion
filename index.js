@@ -201,7 +201,7 @@ const updateCountriesAndCitiesCompletion = (caseX, day, map) => {
             // iterate through all motifs of a given city
             // refer to City object description if u don't get it.
             for (const [_,value] of Object.entries(map[cityCoordinates[0]][cityCoordinates[1]].balance)) {
-                // So we assume motif complete if amount of its coins is more then 1000 
+                // So we assume motif complete if amount of its coins is more then 0 
                 if (value === 0) {
 
                     // Shares same logic with previous boolean values: even if 1 motif is incomplete it means that city is also incomplete
@@ -342,7 +342,13 @@ const main = () => {
         daysPassed = 1
     }
 
-    console.log(answers[0], answers[1], answers[2])
+    const tetst = answers.map( caseX => {
+        return caseX.countries.sort( (a, b) => b.completionDay - a.completionDay)
+    })
+
+    console.log(tetst)
+
+    // console.log(answers[0], answers[1], answers[2])
 }
 
 main()
