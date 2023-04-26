@@ -342,7 +342,13 @@ const main = () => {
         daysPassed = 1
     }
 
-    console.log(answers[0], answers[1], answers[2])
+    const tetst = answers.map( caseX => {
+        return caseX.countries.sort( (a, b) => b.completionDay - a.completionDay)
+    })
+
+    console.log(tetst)
+
+    // console.log(answers[0], answers[1], answers[2])
 }
 
 main()
